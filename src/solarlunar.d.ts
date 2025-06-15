@@ -3,9 +3,9 @@ declare module 'solarlunar' {
     lYear: number;
     lMonth: number;
     lDay: number;
-    animal: string;
-    monthCn: string;
-    dayCn: string;
+    animal: string;      // zodiac animal
+    monthCn: string;     // lunar month in Chinese
+    dayCn: string;       // lunar day in Chinese
     cYear: number;
     cMonth: number;
     cDay: number;
@@ -13,10 +13,27 @@ declare module 'solarlunar' {
     gzMonth: string;
     gzDay: string;
     isLeap: boolean;
-    nWeek: number;
-    ncWeek: string;
+    nWeek: number;       // 1 (Mon) to 7 (Sun)
+    ncWeek: string;      // Chinese weekday name
     isTerm: boolean;
     term?: string;
+  }
+
+  export interface Lunar2SolarResult {
+    cYear: number;
+    cMonth: number;
+    cDay: number;
+    lYear: number;
+    lMonth: number;
+    lDay: number;
+    gzYear: string;
+    gzMonth: string;
+    gzDay: string;
+    isLeap: boolean;
+    animal: string;      // formerly 'Animal'
+    monthCn: string;     // formerly 'IMonthCn'
+    dayCn: string;       // formerly 'IDayCn'
+    term?: string;       // formerly 'Term'
   }
 
   export function solar2lunar(
@@ -31,4 +48,5 @@ declare module 'solarlunar' {
     day: number,
     isLeapMonth?: boolean
   ): Lunar2SolarResult;
+
 }
